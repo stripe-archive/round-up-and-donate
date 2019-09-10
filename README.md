@@ -11,6 +11,16 @@ This sample covers steps 2 and 3: calculating the new total and using the [Trans
 
 Note that the platform and the connected account must be in the same region (e.g. both in the U.S or both in Europe) in order to use the Transfers API.
 
+**Demo**
+
+[View](https://lrg4x.sse.codesandbox.io/) a hosted version of the sample or [fork](https://codesandbox.io/s/round-up-and-donate-lrg4x) the sample on CodeSandbox.
+
+The hosted demo is running in test mode -- use `4242424242424242` as a test card number with any CVC + future expiration date.
+
+Use the `4000000000003220` test card number to trigger a 3D Secure challenge flow.
+
+Read more about test cards on Stripe at https://stripe.com/docs/testing.
+
 <img src="./round-up-and-donate.gif" alt="Checkout page that lets you round up and donate to an organization" align="center">
 
 
