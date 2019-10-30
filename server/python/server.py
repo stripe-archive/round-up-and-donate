@@ -54,8 +54,8 @@ def create_payment():
     )
 
     try:
-        # Send public key and PaymentIntent details to client
-        return jsonify({'publicKey': os.getenv('STRIPE_PUBLIC_KEY'), 'paymentIntent': intent})
+        # Send publishable key and PaymentIntent details to client
+        return jsonify({'publicKey': os.getenv('STRIPE_PUBLISHABLE_KEY'), 'paymentIntent': intent})
     except Exception as e:
         return jsonify(str(e)), 403
 

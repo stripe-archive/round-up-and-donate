@@ -7,7 +7,7 @@ require 'vendor/autoload.php';
 
 $ENV_PATH = '../..';
 
-$dotenv = Dotenv\Dotenv::create(realpath($ENV_PATH));
+$dotenv = Dotenv\Dotenv::create(__DIR__);
 $dotenv->load();
 
 require './config.php';
@@ -47,7 +47,7 @@ function calculateOrderAmount($isDonating)
 }
 
 $app->post('/create-payment-intent', function (Request $request, Response $response, array $args) {
-    $pub_key = getenv('STRIPE_PUBLIC_KEY');
+    $pub_key = getenv('STRIPE_PUBLISHABLE_KEY');
     $body = json_decode($request->getBody());
 
     // Required if we want to transfer part of the payment as a donation
@@ -61,7 +61,7 @@ $app->post('/create-payment-intent', function (Request $request, Response $respo
       "transfer_group" => $transfer_group
     ]);
     
-    // Send public key and PaymentIntent details to client
+    // Send publishable key and PaymentIntent details to client
     return $response->withJson(array('publicKey' => $pub_key, 'paymentIntent' => $payment_intent));
 });
 
@@ -84,7 +84,7 @@ $app->post('/update-payment-intent', function (Request $request, Response $respo
     "metadata" => $metadata
   ]);
   
-  // Send public key and PaymentIntent details to client
+  // Send publishable key and PaymentIntent details to client
   return $response->withJson(array('amount' => $updated_payment_intent->amount));
 });
 
