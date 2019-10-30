@@ -27,16 +27,22 @@ Read more about test cards on Stripe at https://stripe.com/docs/testing.
 ## How to run locally
 Each sample implementation includes 5 servers in Node, Ruby, Python, Java, and PHP in the /server/ directory. 
 
-Before you run the sample, be sure to you have a Stripe account with its own set of [API keys](https://stripe.com/docs/development#api-keys).
+Copy the .env.example file into a file named .env in the folder of the server you want to use. For example:
 
-To run the sample locally, copy the .env.example file to your own .env file: 
+```
+cp .env.example server/node/.env
+```
+
+You will need a Stripe account in order to run the demo. Once you set up your account, go to the Stripe [developer dashboard](https://stripe.com/docs/development#api-keys) to find your API keys and update your .env file with the keys.
+
+```
+STRIPE_PUBLISHABLE_KEY=<replace-with-your-publishable-key>
+STRIPE_SECRET_KEY=<replace-with-your-secret-key>
+```
 
 You will need a connected account to accept the transfers. Learn about [onboarding connected accounts](https://stripe.com/docs/connect/accounts) in the Stripe docs. 
 Once you have a connected account onboarded, replace `ORGANIZATION_ACCOUNT_ID` in .env with the id of the connected account.
 
-```
-cp .env.example .env
-```
 
 ## FAQ
 Q: Why did you pick these frameworks?

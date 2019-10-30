@@ -90,7 +90,7 @@ public class Server {
     public static void main(String[] args) {
         port(4242);
         String ENV_PATH = "../../";
-        Dotenv dotenv = Dotenv.configure().directory(ENV_PATH).load();
+        Dotenv dotenv = Dotenv.load();
 
         Stripe.apiKey = dotenv.get("STRIPE_SECRET_KEY");
 
@@ -113,8 +113,8 @@ public class Server {
 
             // Create a PaymentIntent with the order amount and currency
             PaymentIntent intent = PaymentIntent.create(createParams);
-            // Send public key and PaymentIntent details to client
-            return gson.toJson(new CreatePaymentResponse(dotenv.get("STRIPE_PUBLIC_KEY"), intent));
+            // Send publishable key and PaymentIntent details to client
+            return gson.toJson(new CreatePaymentResponse(dotenv.get("STRIPE_PUBLISHABLE_KEY"), intent));
         });
 
         post("/update-payment-intent", (request, response) -> {
@@ -134,7 +134,7 @@ public class Server {
             PaymentIntent intent = PaymentIntent.retrieve(postBody.getId());
             // Create a PaymentIntent with the order amount and currency
             PaymentIntent updatedIntent = intent.update(updateParams);
-            // Send public key and PaymentIntent details to client
+            // Send publishable key and PaymentIntent details to client
             return gson.toJson(new UpdatePaymentResponse(updatedIntent.getAmount()));
         });
 
