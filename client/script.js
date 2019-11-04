@@ -66,13 +66,14 @@ var setupElements = function(data) {
 };
 
 /*
- * Calls stripe.handleCardPayment which creates a pop-up modal to
+ * Calls stripe.confirmCardPayment which creates a pop-up modal to
  * prompt the user to enter  extra authentication details without leaving your page
  */
 var pay = function(stripe, card, clientSecret) {
   var cardholderEmail = document.querySelector("#email").value;
 
   var data = {
+    card: card,
     billing_details: {}
   };
 
@@ -83,10 +84,10 @@ var pay = function(stripe, card, clientSecret) {
   changeLoadingState(true);
 
   // Initiate the payment.
-  // If authentication is required, handleCardPayment will display a modal
+  // If authentication is required, confirmCardPayment will display a modal
   stripe
-    .handleCardPayment(clientSecret, card, {
-      payment_method_data: data,
+    .confirmCardPayment(clientSecret, {
+      payment_method: data,
       receipt_email: cardholderEmail
     })
     .then(function(result) {
