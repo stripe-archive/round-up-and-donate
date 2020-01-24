@@ -82,7 +82,7 @@ def update_payment():
         # Send new amount to client
         return jsonify({'amount': updated_intent.amount})
     except Exception as e:
-        return jsonify(str(e)), 403
+        return jsonify(error=str(e)), 403
 
 
 @app.route('/webhook', methods=['POST'])
