@@ -2,7 +2,7 @@
 >
 > This project is deprecated and is no longer being actively maintained.
 >
-> Please see the [How to accept donations](https://support.stripe.com/questions/how-to-accept-donations-through-stripe).
+> Please see the [Non profit solutions](https://stripe.com/en-ie/partners/apps-and-extensions?i=non-profit).
 
 # Round up and donate
 
