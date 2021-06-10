@@ -1,3 +1,9 @@
+> <img src="https://stripe.dev/images/badges/archived.png" width="250">
+>
+> This project is deprecated and is no longer being actively maintained.
+>
+> Please see the [How to accept donations](https://support.stripe.com/questions/how-to-accept-donations-through-stripe).
+
 # Round up and donate
 
 Round up and donate features are used in checkout flows to raise money for an organization or nonprofit the business wants to support. It's easy to create your own round up and donate feature using Stripe [Connect](https://stripe.com/docs/connect) and [Payments](https://stripe.com/docs/payments). A good round up and donate experience would:
